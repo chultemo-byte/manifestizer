@@ -1,0 +1,10 @@
+{
+  "name": "Manifestizer",
+  "short_name": "Manifestizer",
+  "description": "Science mechanics from idea to fulfillment. The Praxis circuit.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101410",
+  "theme_color": "#101410",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}
