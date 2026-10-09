@@ -97,6 +97,7 @@
       border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px;
       background: rgba(243,238,228,0.03);
     }
+    .entry{color:#101410;background:#f3eee4;font-weight:600;border-radius:12px;padding:8px 12px}
     .orb-wrap {
       width: min(280px, 68vw); aspect-ratio: 1; margin: 12px auto 8px;
       display: grid; place-items: center; position: relative;
@@ -227,10 +228,10 @@
         <div style="display:flex;gap:6px;margin-top:28px">
           ${days.map(d=>`<span style="width:10px;height:10px;border-radius:99px;background:${d?"var(--sage)":"var(--line-strong)"}"></span>`).join("")}
         </div>
-        ${intent ? `<div class="card" style="margin-top:28px"><p class="mono fog">Active wish</p><p style="margin-top:8px;font-size:20px;line-height:1.35">${esc(intent.wish)}</p>${intent.goal?`<p class="paper-dim" style="margin-top:8px;font-size:14px">${esc(intent.goal)}</p>`:""}</div>`:""}
+        ${intent ? `<div class="card" style="margin-top:28px"><p class="mono fog">Active wish</p><p class="entry" style="margin-top:8px;font-size:20px;line-height:1.35">${esc(intent.wish)}</p>${intent.goal?`<p class="paper-dim" style="margin-top:8px;font-size:14px">${esc(intent.goal)}</p>`:""}</div>`:""}
         ${pending ? `<div class="card" style="margin-top:14px;border-color:rgba(196,92,58,0.35)">
           <p class="mono ember">Open action</p>
-          <p style="margin-top:8px;font-size:18px">After I ${esc(pending.afterAnchor)}, I will ${esc(pending.title)}</p>
+          <p class="entry" style="margin-top:8px;font-size:18px">After I ${esc(pending.afterAnchor)}, I will ${esc(pending.title)}</p>
           <p class="fog" style="margin-top:6px;font-size:14px">${esc(pending.where)} · ${esc(pending.when)}</p>
           <div class="row" style="margin-top:16px">
             ${["yes","partial","no"].map(r=>`<button class="chip" data-review="${r}">${r}</button>`).join("")}
@@ -586,7 +587,7 @@
         <div style="margin-top:22px;display:grid;gap:12px">
           ${[...S.reviews].reverse().map(r => {
             const a = S.actions.find(x=>x.id===r.actionId);
-            return `<div class="card"><p class="mono fog">${r.at.slice(0,10)} · ${r.result} · ${r.progress}%</p><p style="margin-top:8px">${esc(r.whatHappened||a?.title||"—")}</p></div>`;
+            return `<div class="card"><p class="mono fog">${r.at.slice(0,10)} · ${r.result} · ${r.progress}%</p><p class="entry" style="margin-top:8px">${esc(r.whatHappened||a?.title||"—")}</p></div>`;
           }).join("") || `<p class="fog">No evidence yet. Complete a circuit and mark the action.</p>`}
         </div>
       `;
